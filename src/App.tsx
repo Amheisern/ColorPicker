@@ -1,5 +1,10 @@
 import React from 'react'
+import { Picker } from './components/Picker'
 
 export function App() {
-  return <div>Hello, World </div>
+  return (
+    <div>
+      <Picker />
+    </div>
+  )
 }
