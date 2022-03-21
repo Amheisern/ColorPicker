@@ -14,6 +14,8 @@ export function Picker() {
   const [hueValue, hueSetValue] = useState(0)
   function handleHueSlideValue(event: React.MouseEvent) {
     event.preventDefault()
+    const newHueValue = hueValue + 1
+    hueSetValue(newHueValue)
     console.log('slide')
   }
   return (
@@ -41,7 +43,13 @@ export function Picker() {
         <label htmlFor="Saturation">S </label>
       </div>
       <div>
-        <input type="range" id="Lightness" name="Lightness" min="0" max="100" />
+        <input
+          type="range"
+          id="Lightness"
+          name="Lightness"
+          min="0%"
+          max="100%"
+        />
         <label htmlFor="Lightness">L</label>
       </div>
       <div>
