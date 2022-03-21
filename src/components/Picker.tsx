@@ -12,11 +12,22 @@ export function Picker() {
 
   // Simplify (using Destructuring Assignment)
   const [hueValue, hueSetValue] = useState(0)
+  function handleHueSlideValue(event: React.MouseEvent) {
+    event.preventDefault()
+    console.log('slide')
+  }
   return (
     <body>
       <h1>Color Picker</h1>
       <div>
-        <input type="range" id="Hue" name="Hue" min="0" max="360" />
+        <input
+          onClick={handleHueSlideValue}
+          type="range"
+          id="Hue"
+          name="Hue"
+          min="0"
+          max="360"
+        />
         <label htmlFor="Hue">H {hueValue}</label>
       </div>
       <div>
