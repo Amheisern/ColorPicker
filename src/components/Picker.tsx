@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 
 export function Picker() {
   const [hueValue, hueSetValue] = useState<string | number>(0)
-  const newBackgroundColor = `hsl(${hueValue},10%,20%)`
+  const [saturationValue, saturationSetValue] = useState<string | number>(0)
+  const newBackgroundColor = `hsl(${hueValue},${saturationValue}%,10%)`
   const newStyle = { backgroundColor: newBackgroundColor }
   // Declares we are going to use some state (e.g. useState)
   // • Sets initial value (e.g. 0)
@@ -16,6 +17,9 @@ export function Picker() {
   // Simplify (using Destructuring Assignment)
   // const newBackgroundColor = `hsl(50,8%,20%)`
   // const newStyle = { backgroundColor: newBackgroundColor }
+  function handleSaturationValue(event: React.ChangeEvent<HTMLInputElement>) {
+    saturationSetValue(event.target.value)
+  }
   function handleHueSlideValue(event: React.ChangeEvent<HTMLInputElement>) {
     // event.preventDefault()
     hueSetValue(event.target.value)
@@ -41,13 +45,15 @@ export function Picker() {
       </div>
       <div>
         <input
+          value={saturationValue}
+          onChange={handleSaturationValue}
           type="range"
           id="Saturation"
           name="Saturation"
-          min="0"
-          max="100"
+          min="0%"
+          max="100%"
         />
-        <label htmlFor="Saturation">S </label>
+        <label htmlFor="Saturation">S {saturationValue}</label>
       </div>
       <div>
         <input
