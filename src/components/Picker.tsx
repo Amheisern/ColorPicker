@@ -4,11 +4,11 @@ export function Picker() {
   const [hueValue, hueSetValue] = useState<string | number>(0)
   const [saturationValue, saturationSetValue] = useState<string | number>(0)
   const [lightnessValue, lightnessSetValue] = useState<string | number>(0)
-  const [alphaValue, alphaSetValue] = useState<string | number>(50)
+  const [alphaValue, alphaSetValue] = useState<string | number>(0)
   const randomColorButton = document.querySelector('h3')!
   const newBackgroundColor = `hsla(${hueValue},${saturationValue}%,${lightnessValue}%,${alphaValue}%)`
   const newStyle = { backgroundColor: newBackgroundColor }
-
+  let counter = 0
   // Declares we are going to use some state (e.g. useState)
   // • Sets initial value (e.g. 0)
   // useState always returns an array with two entries
@@ -16,29 +16,33 @@ export function Picker() {
   // • The first value of the array is the current value
   // • The second value is a function used to change the value
   function handleClickRandomColorButton() {
+    // console.clear()
     hueSetValue(Math.floor(Math.random() * 361))
     saturationSetValue(Math.floor(Math.random() * 101))
     lightnessSetValue(Math.floor(Math.random() * 101))
+    alphaSetValue(Math.floor(Math.random() * 101))
+    console.log(counter++)
+    // console.log(newStyle)
   }
   randomColorButton?.addEventListener('click', handleClickRandomColorButton)
 
   function handleSaturationValue(event: React.ChangeEvent<HTMLInputElement>) {
     saturationSetValue(event.target.value)
-    console.log('saturation')
+    console.log(saturationValue)
   }
   function handleHueSlideValue(event: React.ChangeEvent<HTMLInputElement>) {
-    event.preventDefault()
+    // event.preventDefault()
     hueSetValue(event.target.value)
-    console.log('hue')
+    console.log(hueSetValue)
   }
   function handleLightnessValue(event: React.ChangeEvent<HTMLInputElement>) {
     lightnessSetValue(event.target.value)
-    console.log('lightness')
+    console.log(lightnessValue)
   }
   function handleAlphaValue(event: React.ChangeEvent<HTMLInputElement>) {
     alphaSetValue(event.target.value)
 
-    console.log('alpha')
+    console.log(alphaValue)
   }
 
   return (
