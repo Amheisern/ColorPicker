@@ -5,10 +5,11 @@ export function Picker() {
   const [saturationValue, saturationSetValue] = useState<string | number>(0)
   const [lightnessValue, lightnessSetValue] = useState<string | number>(0)
   const [alphaValue, alphaSetValue] = useState<string | number>(50)
-  const randomColorButton = document.querySelector('h3')
+  const randomColorButton = document.querySelector('h3')!
+  // const randomColorBox = document.querySelector('h2')!
   // const [randomValue, randomSetValue] = useState<string | number>(0)
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16)
-  const backgroundcolor = 
+  // const randomColor = Math.floor(Math.random() * 16777215).toString(16)
+  // const backgroundColor = Math.floor(Math.random() * 16777215).toString(16)
   const newBackgroundColor = `hsla(${hueValue},${saturationValue}%,${lightnessValue}%,${alphaValue}%)`
   const newStyle = { backgroundColor: newBackgroundColor }
   // Declares we are going to use some state (e.g. useState)
@@ -24,13 +25,15 @@ export function Picker() {
   // const newBackgroundColor = `hsl(50,8%,20%)`
   // const newStyle = { backgroundColor: newBackgroundColor }
   function handleClickRandomColorButton() {
-    console.log('click')
+    hueSetValue(Math.floor(Math.random() * 361))
+    saturationSetValue(Math.floor(Math.random() * 101))
+    lightnessSetValue(Math.floor(Math.random() * 101))
   }
   randomColorButton?.addEventListener('click', handleClickRandomColorButton)
 
   function handleSaturationValue(event: React.ChangeEvent<HTMLInputElement>) {
     saturationSetValue(event.target.value)
-    console.log('hue')
+    console.log('saturation')
   }
   function handleHueSlideValue(event: React.ChangeEvent<HTMLInputElement>) {
     // event.preventDefault()
@@ -41,9 +44,12 @@ export function Picker() {
   }
   function handleLightnessValue(event: React.ChangeEvent<HTMLInputElement>) {
     lightnessSetValue(event.target.value)
+    console.log('lightness')
   }
   function handleAlphaValue(event: React.ChangeEvent<HTMLInputElement>) {
     alphaSetValue(event.target.value)
+
+    console.log('alpha')
   }
 
   return (
@@ -51,8 +57,7 @@ export function Picker() {
       <h1>Color Picker</h1>
       <h2 style={newStyle}></h2>
       <h3>
-        <button>Random Color</button>
-        <span id="color"></span>
+        <button onClick={handleClickRandomColorButton}>Random Color</button>
       </h3>
       <div>
         <input
