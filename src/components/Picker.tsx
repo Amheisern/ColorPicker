@@ -8,18 +8,13 @@ export function Picker() {
   const randomColorButton = document.querySelector('h3')!
   const newBackgroundColor = `hsla(${hueValue},${saturationValue}%,${lightnessValue}%,${alphaValue}%)`
   const newStyle = { backgroundColor: newBackgroundColor }
+
   // Declares we are going to use some state (e.g. useState)
   // • Sets initial value (e.g. 0)
   // useState always returns an array with two entries
   // const hueValue = useState(0)
   // • The first value of the array is the current value
   // • The second value is a function used to change the value
-  //const hueCounter = hueValue[0]
-  // const hueSetCounter = hueValue[1]
-
-  // Simplify (using Destructuring Assignment)
-  // const newBackgroundColor = `hsl(50,8%,20%)`
-  // const newStyle = { backgroundColor: newBackgroundColor }
   function handleClickRandomColorButton() {
     hueSetValue(Math.floor(Math.random() * 361))
     saturationSetValue(Math.floor(Math.random() * 101))
@@ -32,10 +27,8 @@ export function Picker() {
     console.log('saturation')
   }
   function handleHueSlideValue(event: React.ChangeEvent<HTMLInputElement>) {
-    // event.preventDefault()
+    event.preventDefault()
     hueSetValue(event.target.value)
-    // const newHueValue = hueValue + 1
-    // hueSetValue(newHueValue)
     console.log('hue')
   }
   function handleLightnessValue(event: React.ChangeEvent<HTMLInputElement>) {
