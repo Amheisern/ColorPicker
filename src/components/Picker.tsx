@@ -46,7 +46,9 @@ export function Picker() {
   return (
     <div>
       <h1>Color Picker</h1>
-      <h2 style={newStyle}></h2>
+      <div className="box" style={newStyle}>
+        {alphaValue < 100 ? <p>{newBackgroundColor}</p> : <p></p>}
+      </div>
       <h3>
         <button onClick={handleClickRandomColorButton}>Random Color</button>
       </h3>
