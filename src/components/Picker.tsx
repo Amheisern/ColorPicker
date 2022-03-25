@@ -1,10 +1,18 @@
 import React, { useState } from 'react'
 
 export function Picker() {
-  const [hueValue, hueSetValue] = useState<string | number>(0)
-  const [saturationValue, saturationSetValue] = useState<string | number>(0)
-  const [lightnessValue, lightnessSetValue] = useState<string | number>(0)
-  const [alphaValue, alphaSetValue] = useState<string | number>(0)
+  const [hueValue, hueSetValue] = useState<string | number>(
+    Math.floor(Math.random() * 361)
+  )
+  const [saturationValue, saturationSetValue] = useState<string | number>(
+    Math.floor(Math.random() * 101)
+  )
+  const [lightnessValue, lightnessSetValue] = useState<string | number>(
+    Math.floor(Math.random() * 101)
+  )
+  const [alphaValue, alphaSetValue] = useState<string | number>(
+    Math.floor(Math.random() * 101)
+  )
   const newBackgroundColor = `hsla(${hueValue},${saturationValue}%,${lightnessValue}%,${alphaValue}%)`
   const newStyle = { backgroundColor: newBackgroundColor }
 
