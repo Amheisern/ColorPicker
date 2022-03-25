@@ -5,10 +5,9 @@ export function Picker() {
   const [saturationValue, saturationSetValue] = useState<string | number>(0)
   const [lightnessValue, lightnessSetValue] = useState<string | number>(0)
   const [alphaValue, alphaSetValue] = useState<string | number>(0)
-  const randomColorButton = document.querySelector('h3')!
   const newBackgroundColor = `hsla(${hueValue},${saturationValue}%,${lightnessValue}%,${alphaValue}%)`
   const newStyle = { backgroundColor: newBackgroundColor }
-  let counter = 0
+
   // Declares we are going to use some state (e.g. useState)
   // • Sets initial value (e.g. 0)
   // useState always returns an array with two entries
@@ -21,10 +20,9 @@ export function Picker() {
     saturationSetValue(Math.floor(Math.random() * 101))
     lightnessSetValue(Math.floor(Math.random() * 101))
     alphaSetValue(Math.floor(Math.random() * 101))
-    console.log(counter++)
+    // console.log(newBackgroundColor)
     // console.log(newStyle)
   }
-  randomColorButton?.addEventListener('click', handleClickRandomColorButton)
 
   function handleSaturationValue(event: React.ChangeEvent<HTMLInputElement>) {
     saturationSetValue(event.target.value)
