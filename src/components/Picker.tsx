@@ -53,63 +53,65 @@ export function Picker() {
 
   return (
     <div>
-      <h1>Color Picker</h1>
-      <div className="box" style={newStyle}>
-        {alphaValue < 100 ? <p>{newBackgroundColor}</p> : <p></p>}
-      </div>
-      <h3>
-        <button onClick={handleClickRandomColorButton}>Random Color</button>
-      </h3>
-      <div>
-        <input
-          value={hueValue}
-          onChange={handleHueSlideValue}
-          type="range"
-          id="Hue"
-          name="Hue"
-          min="0"
-          max="360"
-        />
-        <label htmlFor="Hue">H {hueValue}</label>
-      </div>
-
-      <div>
-        <input
-          value={saturationValue}
-          onChange={handleSaturationValue}
-          type="range"
-          id="Saturation"
-          name="Saturation"
-          min="0%"
-          max="100%"
-        />
-        <label htmlFor="Saturation">S {saturationValue}</label>
-      </div>
-
-      <div>
-        <input
-          value={lightnessValue}
-          onChange={handleLightnessValue}
-          type="range"
-          id="Lightness"
-          name="Lightness"
-          min="0%"
-          max="100%"
-        />
-        <label htmlFor="Lightness">L{lightnessValue}</label>
-      </div>
-      <div>
-        <input
-          value={alphaValue}
-          onChange={handleAlphaValue}
-          type="range"
-          id="Alpha"
-          name="Alpha"
-          min="0"
-          max="100"
-        />
-        <label htmlFor="Alpha">A {alphaValue}</label>
-      </div>
+      <header>
+        <h1>Color Picker</h1>
+        <div className="box" style={newStyle}>
+          {alphaValue < 100 ? <p>{newBackgroundColor}</p> : <p></p>}
+        </div>
+        <h3>
+          <button onClick={handleClickRandomColorButton}>Random Color</button>
+        </h3>
+      </header>
+      <body>
+        <section>
+          <input
+            value={hueValue}
+            onChange={handleHueSlideValue}
+            type="range"
+            id="Hue"
+            name="Hue"
+            min="0"
+            max="360"
+          />
+          <label htmlFor="Hue">H {hueValue}</label>
+        </section>
+        <section>
+          <input
+            value={saturationValue}
+            onChange={handleSaturationValue}
+            type="range"
+            id="Saturation"
+            name="Saturation"
+            min="0%"
+            max="100%"
+          />
+          <label htmlFor="Saturation">S {saturationValue}</label>
+        </section>
+        <section>
+          <input
+            value={lightnessValue}
+            onChange={handleLightnessValue}
+            type="range"
+            id="Lightness"
+            name="Lightness"
+            min="0%"
+            max="100%"
+          />
+          <label htmlFor="Lightness">L{lightnessValue}</label>
+        </section>
+        <section>
+          <input
+            value={alphaValue}
+            onChange={handleAlphaValue}
+            type="range"
+            id="Alpha"
+            name="Alpha"
+            min="0"
+            max="100"
+          />
+          <label htmlFor="Alpha">A {alphaValue}</label>
+        </section>
+      </body>
     </div>
   )
 }
